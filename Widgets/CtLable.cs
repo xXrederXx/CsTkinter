@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using CsTkinter.Utility;
 using CsTkinter.Windows;
 
 namespace CsTkinter.Widgets;
@@ -49,6 +50,17 @@ public class CtLable : Widget
         set => border.CornerRadius = value;
     }
 
+    public Brush FgColor
+    {
+        get => self.Foreground;
+        set => self.Foreground = value;
+    }
+
+    public Brush BgColor
+    {
+        get => self.Background;
+        set => self.Background = value;
+    }
 
     protected override UIElement GetUIElement()
     {
