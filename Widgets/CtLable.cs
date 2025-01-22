@@ -2,6 +2,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using CsTkinter.Utility;
+using CsTkinter.Utility.DataTypes;
 using CsTkinter.Windows;
 
 namespace CsTkinter.Widgets;
@@ -60,6 +61,18 @@ public class CtLable : Widget
     {
         get => self.Background;
         set => self.Background = value;
+    }
+    public FontType Font
+    {
+        get => new FontType(self.FontFamily, self.FontSize, self.FontStyle, self.FontWeight, self.FontStretch);
+        set
+        {
+            self.FontFamily = value.fontFamily;
+            self.FontSize = value.fontSize;
+            self.FontStyle = value.fontStyle;
+            self.FontWeight = value.fontWeight;
+            self.FontStretch = value.fontStretch;
+        }
     }
 
     protected override UIElement GetUIElement()
