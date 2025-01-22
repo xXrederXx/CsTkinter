@@ -1,4 +1,5 @@
-﻿using CsTkinter.Widgets;
+﻿using System.Numerics;
+using CsTkinter.Widgets;
 using CsTkinter.Windows;
 
 namespace WpfConsoleApp
@@ -12,7 +13,10 @@ namespace WpfConsoleApp
 
             // Start the WPF application
             CtWindow app = new CtWindow();
+            app.Geometry = new Vector2(200, 200);
+
             CtLable lable = new CtLable(app);
+            lable.Place(100, 100);
             
             app.Run();
 

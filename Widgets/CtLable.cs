@@ -13,6 +13,8 @@ public class CtLable : Widget
 
     public CtLable(IWindow master) : base(master)
     {
+        self = new Label();
+        
         border = new Border();
         border.BorderBrush = new SolidColorBrush(Color.FromRgb(255, 0, 0));
         border.BorderThickness = new(1);
