@@ -1,4 +1,5 @@
-﻿using CsTkinter.Windows;
+﻿using CsTkinter.Widgets;
+using CsTkinter.Windows;
 
 namespace WpfConsoleApp
 {
@@ -11,7 +12,8 @@ namespace WpfConsoleApp
 
             // Start the WPF application
             CtWindow app = new CtWindow();
-
+            CtLable lable = new CtLable(app);
+            
             app.Run();
 
             Console.WriteLine("WPF Window closed.");
