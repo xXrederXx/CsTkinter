@@ -15,9 +15,9 @@ namespace WpfConsoleApp
             CtWindow app = new CtWindow();
             app.Geometry = new Vector2(200, 200);
 
-            CtLable lable = new CtLable(app);
+            CtLable lable = new CtLable(app, text: "Teeeeeeeeeeeext");
             lable.Place(100, 100);
-            
+
             app.Run();
 
             Console.WriteLine("WPF Window closed.");
