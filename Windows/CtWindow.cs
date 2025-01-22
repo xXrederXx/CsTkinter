@@ -13,43 +13,52 @@ public class CtWindow : IWindow
         window = new Window();
     }
 
-    public string Title() => window.Title;
-    public void Title(string title)
+    public string Title
     {
-        window.Title = title;
+        get => window.Title;
+        set => window.Title = value;
     }
 
-    public Vector2 Geometry() => new Vector2((float)window.Width, (float)window.Height);
-    public void Geometry(Vector2 size)
+    public Vector2 Geometry
     {
-        window.Width = size.X;
-        window.Height = size.Y;
+        get => new Vector2((float)window.Width, (float)window.Height);
+        set
+        {
+            window.Width = value.X;
+            window.Height = value.Y;
+        }
     }
 
-    public Vector2 MinSize() => new Vector2((float)window.MinWidth, (float)window.MinHeight);
-    public void MinSize(Vector2 size)
+    public Vector2 MinSize
     {
-        window.MinWidth = size.X;
-        window.MinHeight = size.Y;
+        get => new Vector2((float)window.MinWidth, (float)window.MinHeight);
+        set
+        {
+            window.MinWidth = value.X;
+            window.MinHeight = value.Y;
+        }
     }
 
-    public Vector2 MaxSize() => new Vector2((float)window.MaxWidth, (float)window.MaxHeight);
-    public void MaxSize(Vector2 size)
+    public Vector2 MaxSize
     {
-        window.MaxWidth = size.X;
-        window.MaxHeight = size.Y;
+        get => new Vector2((float)window.MaxWidth, (float)window.MaxHeight);
+        set
+        {
+            window.MaxWidth = value.X;
+            window.MaxHeight = value.Y;
+        }
     }
 
-    public bool Resizable() => window.ResizeMode == ResizeMode.CanResize;
-    public void Resizable(bool resizable)
+    public bool Resizable
     {
-        window.ResizeMode = resizable ? ResizeMode.CanResize : ResizeMode.NoResize;
+        get => window.ResizeMode == ResizeMode.CanResize;
+        set => window.ResizeMode = value ? ResizeMode.CanResize : ResizeMode.NoResize;
     }
 
-    public WindowState State() => window.WindowState;
-    public void State(WindowState state)
+    public WindowState State
     {
-        window.WindowState = state;
+        get => window.WindowState;
+        set => window.WindowState = value;
     }
 
     public void Run()
