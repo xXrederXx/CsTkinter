@@ -10,7 +10,7 @@ namespace WpfConsoleApp
             Console.WriteLine("Launching WPF Window...");
 
             // Start the WPF application
-            var app = new CtWindow();
+            CtWindow app = new CtWindow();
 
             app.Run();
 
