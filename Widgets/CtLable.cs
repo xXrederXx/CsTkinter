@@ -1,3 +1,4 @@
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using CsTkinter.Windows;
@@ -28,5 +29,10 @@ public class CtLable : Widget
     {
         get => self.Height;
         set => self.Height = value;
+    }
+
+    protected override UIElement GetUIElement()
+    {
+        return self;
     }
 }
