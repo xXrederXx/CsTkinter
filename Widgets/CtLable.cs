@@ -43,6 +43,13 @@ public class CtLable : Widget
         set => self.Content = value;
     }
 
+    public CornerRadius CornerRadius
+    {
+        get => border.CornerRadius;
+        set => border.CornerRadius = value;
+    }
+
+
     protected override UIElement GetUIElement()
     {
         return border;
