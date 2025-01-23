@@ -1,6 +1,7 @@
 ﻿using System.Numerics;
 using CsTkinter.Widgets;
 using CsTkinter.Windows;
+using CsTkinter.Tests.Widgets;
 
 namespace WpfConsoleApp
 {
@@ -9,6 +10,7 @@ namespace WpfConsoleApp
         [STAThread] // Required for WPF
         static void Main(string[] args)
         {
+            new LableTest();
             Console.WriteLine("Launching WPF Window...");
 
             // Start the WPF application

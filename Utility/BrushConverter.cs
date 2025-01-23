@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace CsTkinter.Utility;
 
-public class BrushConverter
+public static class BrushConverter
 {
     public static Brush FromColor(Color color)
     {
