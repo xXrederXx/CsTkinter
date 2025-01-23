@@ -21,6 +21,7 @@ public sealed class LableTest : BaseTest
         lable.BgColor = BrushConverter.FromColor(0, 255, 0);
         lable.Font = new Utility.DataTypes.FontType(new System.Windows.Media.FontFamily("Comic sans"), 24, FontStyles.Italic, FontWeights.UltraBold, FontStretches.Medium);
         lable.BorderColor = BrushConverter.FromColor(0, 0, 255);
+        lable.BorderWidth = new(1, 1, 3, 5);
         lable.Place(100, 100);
     }
 }

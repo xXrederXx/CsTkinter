@@ -32,31 +32,26 @@ public class CtLable : Widget
         get => self.Width;
         set => self.Width = value;
     }
-
     public double Height
     {
         get => self.Height;
         set => self.Height = value;
     }
-
     public string Text
     {
         get => (string)self.Content;
         set => self.Content = value;
     }
-
     public CornerRadius CornerRadius
     {
         get => border.CornerRadius;
         set => border.CornerRadius = value;
     }
-
     public Brush FgColor
     {
         get => self.Foreground;
         set => self.Foreground = value;
     }
-
     public Brush BgColor
     {
         get => self.Background;
@@ -78,6 +73,20 @@ public class CtLable : Widget
     {
         get => border.BorderBrush;
         set => border.BorderBrush = value;
+    }
+    public Thickness BorderWidth
+    {
+        get => border.BorderThickness;
+        set => border.BorderThickness = value;
+    }
+    public Alignment JustifyText
+    {
+        get => new Alignment(self.HorizontalContentAlignment, self.VerticalContentAlignment);
+        set
+        {
+            self.HorizontalAlignment = value.horizontal;
+            self.VerticalAlignment = value.vertical;
+        }
     }
 
     protected override UIElement GetUIElement()
