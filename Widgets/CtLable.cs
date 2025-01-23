@@ -74,6 +74,11 @@ public class CtLable : Widget
             self.FontStretch = value.fontStretch;
         }
     }
+    public Brush BorderColor
+    {
+        get => border.BorderBrush;
+        set => border.BorderBrush = value;
+    }
 
     protected override UIElement GetUIElement()
     {
