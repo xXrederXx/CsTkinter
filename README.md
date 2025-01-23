@@ -13,6 +13,7 @@
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
+  <a href="#TODO">TODO</a> •
   <a href="#license">License</a>
 </p>
 
@@ -28,6 +29,12 @@
 ## How To Use
 
 ???
+
+## TODO
+- [ ] Add more Widgets
+- [ ] Add more Place methods
+- [ ] Add general functionality
+
 
 ## You may also like...
 
