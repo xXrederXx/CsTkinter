@@ -15,5 +15,9 @@ public abstract class Widget
     {
         master.Place(GetUIElement(), x, y);
     }
+    public void PlaceRelativ(double x, double y)
+    {
+        master.PlaceRelativ(GetUIElement(), x, y);
+    }
     protected abstract UIElement GetUIElement();
 }

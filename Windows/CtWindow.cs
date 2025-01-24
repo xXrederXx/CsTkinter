@@ -9,6 +9,7 @@ public class CtWindow : IWindow
 {
     private readonly Window self;
     private readonly Canvas canvas;
+    private readonly List<(UIElement, double, double)> RelativElements = [];
 
     public CtWindow()
     {
@@ -17,6 +18,7 @@ public class CtWindow : IWindow
         canvas = new();
 
         self.Content = canvas;
+        canvas.SizeChanged += (s, e) => UpdatePositionOfRelativ();
     }
 
     public string Title
@@ -78,6 +80,31 @@ public class CtWindow : IWindow
         // Set absolute position
         Canvas.SetLeft(element, x);
         Canvas.SetTop(element, y);
+    }
+
+    public void PlaceRelativ(UIElement element, double percentx, double percenty)
+    {
+        double x = canvas.ActualWidth / 100 * percentx;
+        double y = canvas.ActualHeight / 100 * percenty;
+
+        // Ensure the element is added to the canvas
+        if (!canvas.Children.Contains(element))
+        {
+            canvas.Children.Add(element);
+            RelativElements.Add((element, percentx, percenty));
+        }
+
+        // Set absolute position
+        Canvas.SetLeft(element, x);
+        Canvas.SetTop(element, y);
+    }
+
+    private void UpdatePositionOfRelativ()
+    {
+        foreach (var relativElement in RelativElements)
+        {
+            PlaceRelativ(relativElement.Item1, relativElement.Item2, relativElement.Item3);
+        }
     }
 
     public void Run()

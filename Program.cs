@@ -16,7 +16,7 @@ namespace WpfConsoleApp
             app.Geometry = new Vector2(200, 200);
 
             CtLabel lable = new CtLabel(app, text: "Teeeeeeeeeeeext");
-            lable.Place(100, 100);
+            lable.PlaceRelativ(50, 50);
 
             app.Run();
 
