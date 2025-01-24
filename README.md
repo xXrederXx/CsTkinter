@@ -17,7 +17,6 @@
   <a href="#license">License</a>
 </p>
 
-<!--? ![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif) -->
 ## Key Features
 
 * Easy to use
@@ -28,7 +27,43 @@
 
 ## How To Use
 
-???
+First create a new Csharp project. Go into the .csproj file and make shure it looks similar to this. Important are the **TargetFramework** and the **UseWPF**
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+</Project>
+```
+Then import all the scripts. Now you should be able to create an application.
+This is a sample app with only a lable. Importent is the **STAThread** attribute.
+```csharp
+class Program
+{
+    [STAThread] // Required for WPF
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Launching WPF Window...");
+
+        // Start the WPF application
+        CtWindow app = new CtWindow();
+        app.Geometry = new Vector2(200, 200);
+
+        CtLabel lable = new CtLabel(app, text: "Nice Label");
+        lable.Place(100, 100);
+
+        app.Run();
+
+        Console.WriteLine("WPF Window closed.");
+    }
+}
+
+```
+Now try to build your own app.
 
 ## TODO
 - [ ] Add more Widgets
