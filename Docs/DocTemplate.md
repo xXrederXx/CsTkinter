@@ -32,19 +32,19 @@ Short description of the thing
 
 ## Methods
 
- - .SetXY(int x)
-  description of method
-    
-  - .GetXY()
-  other description
+| Method   | Description |
+|----------|-------------|
+|          |             |
+|          |             |
+|          |             |
 
 ## Variables
 
- - .SetXY(int x)
-  description of method
-    
-  - .GetXY()
-  other description
+| Name     | Type | Description |
+|----------|------|-------------|
+|          |      |             |
+|          |      |             |
+|          |      |             |
 
 ## TODO
  - [ ] Some TODO
