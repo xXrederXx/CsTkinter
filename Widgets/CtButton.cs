@@ -1,26 +1,24 @@
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using CsTkinter.Utility;
 using CsTkinter.Utility.DataTypes;
 using CsTkinter.Windows;
 
 namespace CsTkinter.Widgets;
 
-public class CtLabel : Widget
+public class CtButton : Widget
 {
-    private readonly Label self;
-    private readonly Border border;
-    
-    public CtLabel(IWindow master, double width = 100, double height = 24, string text = "CtLabel") : base(master)
+    private readonly Button self;
+
+    public CtButton(IWindow master, double width = 100, double height = 24, string text = "CtButton")
+        : base(master)
     {
-        self = new Label()
+        self = new Button()
         {
             Width = width, Height = height, Content = text
         };
-
-        border = new Border();
-        border.Child = self;
+        self.Click += (s, e) => OnClick?.Invoke();
     }
 
     public override double Width
@@ -38,11 +36,7 @@ public class CtLabel : Widget
         get => (string)self.Content;
         set => self.Content = value;
     }
-    public CornerRadius CornerRadius
-    {
-        get => border.CornerRadius;
-        set => border.CornerRadius = value;
-    }
+
     public Brush FgColor
     {
         get => self.Foreground;
@@ -67,13 +61,13 @@ public class CtLabel : Widget
     }
     public Brush BorderColor
     {
-        get => border.BorderBrush;
-        set => border.BorderBrush = value;
+        get => self.BorderBrush;
+        set => self.BorderBrush = value;
     }
     public Thickness BorderWidth
     {
-        get => border.BorderThickness;
-        set => border.BorderThickness = value;
+        get => self.BorderThickness;
+        set => self.BorderThickness = value;
     }
     public Alignment JustifyText
     {
@@ -85,8 +79,9 @@ public class CtLabel : Widget
         }
     }
 
+    public Action? OnClick;
     protected override UIElement GetUIElement()
     {
-        return border;
+        return self;
     }
 }

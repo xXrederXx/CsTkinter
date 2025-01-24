@@ -11,6 +11,9 @@ public abstract class Widget
         this.master = master;
     }
 
+    public abstract double Width { get; set; }
+    public abstract double Height { get; set; }
+
     public void Place(double x, double y)
     {
         master.Place(GetUIElement(), x, y);
