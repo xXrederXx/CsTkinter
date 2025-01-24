@@ -34,18 +34,18 @@ CtLabel is used to create a Label in a window. It has great flexability.
 ## Variables
 
 
-| Name         | Type         | Description                       |
-| ------------ | ------------ | --------------------------------- |
-| Width        | double       | Defines the width of the element  |
-| Height       | double       | Defines the hight of the element  |
-| Text         | string       | The displayed texed               |
-| CornerRadius | CornerRadius | The corner radiuses               |
-| FgColor      | Brush        | The text color                    |
-| BgColor      | Brush        | The background color              |
-| Font         | FontType     | The font used for the text        |
-| BorderColor  | Brush        | The border color                  |
-| BorderWidth  | Thickness    | The border width                  |
-| JustifyText  | Alignment    | Defines where the text is aligned |
+| Name         | Type                                        | Description                       |
+| ------------ | ------------------------------------------- | --------------------------------- |
+| Width        | double                                      | Defines the width of the element  |
+| Height       | double                                      | Defines the hight of the element  |
+| Text         | string                                      | The displayed texed               |
+| CornerRadius | CornerRadius                                | The corner radiuses               |
+| FgColor      | Brush                                       | The text color                    |
+| BgColor      | Brush                                       | The background color              |
+| Font         | <a href="../Types/FontType.md">FontType</a> | The font used for the text        |
+| BorderColor  | Brush                                       | The border color                  |
+| BorderWidth  | Thickness                                   | The border width                  |
+| JustifyText  | Alignment                                   | Defines where the text is aligned |
 
 ## TODO
  - [ ] Better Initalizer
