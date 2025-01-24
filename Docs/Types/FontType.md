@@ -1,6 +1,6 @@
 # FontType
 
-FontType is a struct, which is used for defining a Font. it holds data about the Font Family, Size, Style, Weight and Strech. For some arguments you need to use the FontStyles, FontWeights and FontStretches classes.
+FontType is a struct, which is used for defining a Font. it holds data about the Font Family, Size, Style, Weight and Strech. For some arguments you need to use WPF classes  <a href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.fontfamily?view=windowsdesktop-9.0">FontFamily</a>, <a href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.fontstyles?view=windowsdesktop-9.0">FontStyles</a>, <a href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.fontweights?view=windowsdesktop-9.0">FontWeights</a> and <a href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.fontstretches?view=windowsdesktop-9.0">FontStretches</a> classes.
 
 <p align="left">
   <a href="#example-code">Example Code</a> •
