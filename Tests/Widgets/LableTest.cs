@@ -12,7 +12,7 @@ public sealed class LableTest : BaseTest
 
     public override void InitTest()
     {
-        CtLable lable = new CtLable(app);
+        CtLabel lable = new CtLabel(app);
         lable.Width = 300;
         lable.Height = 100;
         lable.Text = "Test Label";

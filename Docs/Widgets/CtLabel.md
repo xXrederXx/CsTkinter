@@ -1,6 +1,6 @@
-# CtLable
+# CtLabel
 
-CtLable is used to create a Lable in a window. It has great flexability.
+CtLabel is used to create a Label in a window. It has great flexability.
 
 <p align="left">
   <a href="#example-code">Example Code</a> •
@@ -14,9 +14,9 @@ CtLable is used to create a Lable in a window. It has great flexability.
 
 ```csharp
     CtWindow root = new CtWindow();
-    CtLable lable = new CtLable(root, text: "A cool lable");
-    lable.Width = 200;
-    lable.Place(10, 10);
+    CtLabel Label = new CtLabel(root, text: "A cool Label");
+    Label.Width = 200;
+    Label.Place(10, 10);
 ```
 
 ## Arguments
@@ -26,7 +26,7 @@ CtLable is used to create a Lable in a window. It has great flexability.
 | master   | IWindow | -         | The Window the element should be placed in |
 | width    | double  | 100       | Width of the element                       |
 | height   | double  | 24        | Height of the element                      |
-| text     | string  | "CtLable" | Text to display                            |
+| text     | string  | "CtLabel" | Text to display                            |
 
 ## Methods
  There are no public methods on this class

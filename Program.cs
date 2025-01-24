@@ -15,7 +15,7 @@ namespace WpfConsoleApp
             CtWindow app = new CtWindow();
             app.Geometry = new Vector2(200, 200);
 
-            CtLable lable = new CtLable(app, text: "Teeeeeeeeeeeext");
+            CtLabel lable = new CtLabel(app, text: "Teeeeeeeeeeeext");
             lable.Place(100, 100);
 
             app.Run();

@@ -7,12 +7,12 @@ using CsTkinter.Windows;
 
 namespace CsTkinter.Widgets;
 
-public class CtLable : Widget
+public class CtLabel : Widget
 {
     private readonly Label self;
     private readonly Border border;
     
-    public CtLable(IWindow master, double width = 100, double height = 24, string text = "CtLable") : base(master)
+    public CtLabel(IWindow master, double width = 100, double height = 24, string text = "CtLabel") : base(master)
     {
         self = new Label()
         {
