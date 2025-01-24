@@ -5,7 +5,6 @@ CtLabel is used to create a Label in a window. It has great flexability.
 <p align="left">
   <a href="#example-code">Example Code</a> •
   <a href="#arguments">Arguments</a> •
-  <a href="#methods">Methods</a> •
   <a href="#variables">Variables</a> •
   <a href="#todo">TODO</a>
 </p>
@@ -28,8 +27,6 @@ CtLabel is used to create a Label in a window. It has great flexability.
 | height   | double  | 24        | Height of the element                      |
 | text     | string  | "CtLabel" | Text to display                            |
 
-## Methods
- There are no public methods on this class
 
 ## Variables
 

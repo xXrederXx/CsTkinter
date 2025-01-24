@@ -5,9 +5,7 @@ FontType is a struct, which is used for defining a Font. it holds data about the
 <p align="left">
   <a href="#example-code">Example Code</a> •
   <a href="#arguments">Arguments</a> •
-  <a href="#methods">Methods</a> •
-  <a href="#variables">Variables</a> •
-  <a href="#todo">TODO</a>
+  <a href="#variables">Variables</a> 
 </p>
 
 ## Example Code
@@ -32,9 +30,6 @@ FontType is a struct, which is used for defining a Font. it holds data about the
 |fontWeight|FontWeight|describes the Font Weight - Thin, Bold, etc|
 |fontStretch|FontStretch| describes the Font Strech - Expanded, Condensed, etc|
 
-## Methods
-
-There are no public methods
 
 ## Variables
 All are readonly
@@ -46,6 +41,3 @@ All are readonly
 |fontStyle|FontStyle| describes the Font Style - bold, italic, etc|
 |fontWeight|FontWeight|describes the Font Weight - Thin, Bold, etc|
 |fontStretch|FontStretch| describes the Font Strech - Expanded, Condensed, etc|
-
-## TODO
- - [x] No Todo

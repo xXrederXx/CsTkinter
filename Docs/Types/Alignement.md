@@ -5,8 +5,7 @@ This is a struct, which is used to define the alignement of an element. You wil 
 <p align="left">
   <a href="#example-code">Example Code</a> •
   <a href="#arguments">Arguments</a> •
-  <a href="#variables">Variables</a> •
-  <a href="#todo">TODO</a>
+  <a href="#variables">Variables</a> 
 </p>
 
 ## Example Code
@@ -35,6 +34,3 @@ All variables are readonly
 |horizontal|HorizontalAlignment| alignement on the horizontal axis|
 |vertical|VerticalAlignment| alignement on the vertical axis|
 
-
-## TODO
- - [x] No TODO
