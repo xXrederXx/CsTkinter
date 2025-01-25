@@ -1,7 +1,7 @@
-using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using CsTkinter.Utility;
 using CsTkinter.Utility.DataTypes;
 using CsTkinter.Windows;
 
@@ -11,15 +11,59 @@ public class CtButton : Widget
 {
     private readonly Button self;
 
-    public CtButton(IWindow master, double width = 100, double height = 24, string text = "CtButton")
+    public CtButton(
+        IWindow master,
+        double width = 100,
+        double height = 24,
+        string text = "CtButton"
+    )
         : base(master)
     {
         self = new Button()
         {
-            Width = width, Height = height, Content = text
+            Width = width,
+            Height = height,
+            Content = text,
         };
+
+        // Ensure the button's visual appearance
+        self.OverridesDefaultStyle = true;
+
+        // Define a Style with a new ControlTemplate
+        Style style = new Style(typeof(Button));
+
+        // Define the ControlTemplate
+        ControlTemplate controlTemplate = new ControlTemplate(typeof(Button));
+        FrameworkElementFactory borderFactory = new FrameworkElementFactory(typeof(Border));
+        borderFactory.SetValue(Border.BackgroundProperty, new TemplateBindingExtension(Button.BackgroundProperty));
+        borderFactory.SetValue(Border.BorderBrushProperty, new TemplateBindingExtension(Button.BorderBrushProperty));
+        borderFactory.SetValue(Border.BorderThicknessProperty, new TemplateBindingExtension(Button.BorderThicknessProperty));
+        borderFactory.SetValue(Border.PaddingProperty, new TemplateBindingExtension(Button.PaddingProperty));
+
+        // Add a ContentPresenter to the Border
+        FrameworkElementFactory contentPresenterFactory = new FrameworkElementFactory(typeof(ContentPresenter));
+        contentPresenterFactory.SetValue(ContentPresenter.ContentProperty, new TemplateBindingExtension(Button.ContentProperty));
+        contentPresenterFactory.SetValue(ContentPresenter.HorizontalAlignmentProperty, HorizontalAlignment.Center);
+        contentPresenterFactory.SetValue(ContentPresenter.VerticalAlignmentProperty, VerticalAlignment.Center);
+
+        borderFactory.AppendChild(contentPresenterFactory);
+        controlTemplate.VisualTree = borderFactory;
+
+        // Assign the template to the style
+        style.Setters.Add(new Setter(Button.TemplateProperty, controlTemplate));
+        self.Style = style;
+
+        // Set up event handlers
         self.Click += (s, e) => OnClick?.Invoke();
+        self.MouseEnter += (s, e) => ApplyOnMouseEnterStyle();
+        self.MouseLeave += (s, e) => ApplyOnMouseLeaveStyle();
+        self.PreviewMouseDown += (s, e) => ApplyOnMouseDownStyle();
+        self.PreviewMouseUp += (s, e) => ApplyOnMouseUpStyle();
+
+        // Ensure a default visual style is applied
+        ApplyOnMouseLeaveStyle();
     }
+
 
     public override double Width
     {
@@ -37,19 +81,25 @@ public class CtButton : Widget
         set => self.Content = value;
     }
 
-    public Brush FgColor
-    {
-        get => self.Foreground;
-        set => self.Foreground = value;
-    }
-    public Brush BgColor
-    {
-        get => self.Background;
-        set => self.Background = value;
-    }
+    public Brush FgColor = Utility.BrushConverter.FromColor(0, 0, 0);
+    public Brush BgColor = Utility.BrushConverter.FromColor(255, 255, 255);
+    public Brush BorderColor = Utility.BrushConverter.FromColor(0, 0, 0);
+    public Brush? HoverFgColor = null;
+    public Brush? HoverBgColor = null;
+    public Brush? HoverBorderColor = null;
+    public Brush? ClickFgColor = null;
+    public Brush? ClickBgColor = null;
+    public Brush? ClickBorderColor = null;
     public FontType Font
     {
-        get => new FontType(self.FontFamily, self.FontSize, self.FontStyle, self.FontWeight, self.FontStretch);
+        get =>
+            new FontType(
+                self.FontFamily,
+                self.FontSize,
+                self.FontStyle,
+                self.FontWeight,
+                self.FontStretch
+            );
         set
         {
             self.FontFamily = value.fontFamily;
@@ -58,11 +108,6 @@ public class CtButton : Widget
             self.FontWeight = value.fontWeight;
             self.FontStretch = value.fontStretch;
         }
-    }
-    public Brush BorderColor
-    {
-        get => self.BorderBrush;
-        set => self.BorderBrush = value;
     }
     public Thickness BorderWidth
     {
@@ -80,6 +125,36 @@ public class CtButton : Widget
     }
 
     public Action? OnClick;
+
+    private void ApplyOnMouseEnterStyle()
+    {
+        self.Foreground = HoverFgColor is null ? FgColor : HoverFgColor;
+        self.Background = HoverBgColor is null ? BgColor : HoverBgColor;
+        self.BorderBrush = HoverBorderColor is null ? BorderColor : HoverBorderColor;
+    }
+
+    private void ApplyOnMouseLeaveStyle()
+    {
+        self.Foreground = FgColor;
+        self.Background = BgColor;
+        self.BorderBrush = BorderColor;
+    }
+
+    private void ApplyOnMouseDownStyle()
+    {
+        System.Console.WriteLine("E");
+        self.Foreground = ClickFgColor is null ? FgColor : ClickFgColor;
+        self.Background = ClickBgColor is null ? BgColor : ClickBgColor;
+        self.BorderBrush = ClickBorderColor is null ? BorderColor : ClickBorderColor;
+    }
+
+    private void ApplyOnMouseUpStyle()
+    {
+        self.Foreground = HoverFgColor is null ? FgColor : HoverFgColor;
+        self.Background = HoverBgColor is null ? BgColor : HoverBgColor;
+        self.BorderBrush = HoverBorderColor is null ? BorderColor : HoverBorderColor;
+    }
+
     protected override UIElement GetUIElement()
     {
         return self;
