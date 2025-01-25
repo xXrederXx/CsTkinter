@@ -34,3 +34,5 @@ All variables are readonly
 |horizontal|HorizontalAlignment| alignement on the horizontal axis|
 |vertical|VerticalAlignment| alignement on the vertical axis|
 
+---
+25.1.2025

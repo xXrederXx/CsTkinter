@@ -41,3 +41,6 @@ All are readonly
 |fontStyle|FontStyle| describes the Font Style - bold, italic, etc|
 |fontWeight|FontWeight|describes the Font Weight - Thin, Bold, etc|
 |fontStretch|FontStretch| describes the Font Strech - Expanded, Condensed, etc|
+
+---
+25.1.2025

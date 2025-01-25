@@ -46,3 +46,6 @@ CtLabel is used to create a Label in a window. It has great flexability.
 
 ## TODO
  - [ ] Better Initalizer
+
+---
+25.1.2025

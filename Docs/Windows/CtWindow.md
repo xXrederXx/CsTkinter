@@ -50,3 +50,6 @@ This is the base of every app. You may only use one instance. To launch the app 
 ## TODO
  - [ ] Better inizalizer
  - [ ] More Functionality
+  
+---
+25.1.2025
