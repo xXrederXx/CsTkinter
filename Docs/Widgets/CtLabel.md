@@ -42,7 +42,7 @@ CtLabel is used to create a Label in a window. It has great flexability.
 | Font         | <a href="../Types/FontType.md">FontType</a> | The font used for the text        |
 | BorderColor  | Brush                                       | The border color                  |
 | BorderWidth  | Thickness                                   | The border width                  |
-| JustifyText  | Alignment                                   | Defines where the text is aligned |
+| JustifyText  | <a href="../Types/Alignement.md">Alignment</a>                                   | Defines where the text is aligned |
 
 ## TODO
  - [ ] Better Initalizer

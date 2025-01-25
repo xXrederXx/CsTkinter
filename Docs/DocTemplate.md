@@ -24,27 +24,27 @@ Short description of the thing
 
 ## Arguments
 
-| Argument | Type | Description |
-|----------|------|-------------|
-|          |      |             |
-|          |      |             |
-|          |      |             |
+| Argument | Type | Default | Description |
+| -------- | ---- | ------- | ----------- |
+|          |      |         |             |
+|          |      |         |             |
+|          |      |         |             |
 
 ## Methods
 
-| Method   | Description |
-|----------|-------------|
-|          |             |
-|          |             |
-|          |             |
+| Method | Description |
+| ------ | ----------- |
+|        |             |
+|        |             |
+|        |             |
 
 ## Variables
 
-| Name     | Type | Description |
-|----------|------|-------------|
-|          |      |             |
-|          |      |             |
-|          |      |             |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+|      |      |             |
+|      |      |             |
+|      |      |             |
 
 ## TODO
  - [ ] Some TODO
