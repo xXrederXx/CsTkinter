@@ -101,7 +101,7 @@ public class CtWindow : IWindow
 
     private void UpdatePositionOfRelativ()
     {
-        foreach (var relativElement in RelativElements)
+        foreach ((UIElement, double, double) relativElement in RelativElements)
         {
             PlaceRelativ(relativElement.Item1, relativElement.Item2, relativElement.Item3);
         }
@@ -110,7 +110,7 @@ public class CtWindow : IWindow
     public void Run()
     {
         // Start the WPF application and show the window
-        var app = new Application();
+        Application app = new Application();
         app.Run(self);
     }
 }
