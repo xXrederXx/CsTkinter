@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace CsTkinter.Utility.DataTypes;
 
-public struct Alignment
+public readonly struct Alignment
 {
     public Alignment(HorizontalAlignment horizontal, VerticalAlignment vertical)
     {

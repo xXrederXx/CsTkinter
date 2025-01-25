@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace CsTkinter.Utility.DataTypes;
 
-public struct FontType
+public readonly struct FontType
 {
     public readonly FontFamily fontFamily;
     public readonly double fontSize;

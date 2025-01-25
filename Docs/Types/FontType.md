@@ -22,25 +22,25 @@ FontType is a struct, which is used for defining a Font. it holds data about the
 
 ## Arguments
 
-| Argument | Type | Description |
-|----------|------|-------------|
-|fontFamily|FontFamily| describes the Font Family|
-|fontSize|double| describes the Font size|
-|fontStyle|FontStyle| describes the Font Style - bold, italic, etc|
-|fontWeight|FontWeight|describes the Font Weight - Thin, Bold, etc|
-|fontStretch|FontStretch| describes the Font Strech - Expanded, Condensed, etc|
+| Argument    | Type        | Default              | Description                                          |
+| ----------- | ----------- | -------------------- | ---------------------------------------------------- |
+| fontFamily  | FontFamily  | -                    | describes the Font Family                            |
+| fontSize    | double      | 11                   | describes the Font size                              |
+| fontStyle   | FontStyle   | FontStyles.Normal    | describes the Font Style - bold, italic, etc         |
+| fontWeight  | FontWeight  | FontWeights.Normal   | describes the Font Weight - Thin, Bold, etc          |
+| fontStretch | FontStretch | FontStretches.Normal | describes the Font Strech - Expanded, Condensed, etc |
 
 
 ## Variables
 All are readonly
 
-| Name     | Type | Description |
-|----------|------|-------------|
-|fontFamily|FontFamily| describes the Font Family|
-|fontSize|double| describes the Font size|
-|fontStyle|FontStyle| describes the Font Style - bold, italic, etc|
-|fontWeight|FontWeight|describes the Font Weight - Thin, Bold, etc|
-|fontStretch|FontStretch| describes the Font Strech - Expanded, Condensed, etc|
+| Name        | Type        | Description                                          |
+| ----------- | ----------- | ---------------------------------------------------- |
+| fontFamily  | FontFamily  | describes the Font Family                            |
+| fontSize    | double      | describes the Font size                              |
+| fontStyle   | FontStyle   | describes the Font Style - bold, italic, etc         |
+| fontWeight  | FontWeight  | describes the Font Weight - Thin, Bold, etc          |
+| fontStretch | FontStretch | describes the Font Strech - Expanded, Condensed, etc |
 
 ---
 25.1.2025
