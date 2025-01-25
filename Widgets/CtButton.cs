@@ -15,17 +15,50 @@ public class CtButton : Widget
         IWindow master,
         double width = 100,
         double height = 24,
-        string text = "CtButton"
+        string text = "CtButton",
+        Brush? fgColor = null,
+        Brush? bgColor = null,
+        Brush? borderColor = null,
+        Brush? hoverFgColor = null,
+        Brush? hoverBgColor = null,
+        Brush? hoverBorderColor = null,
+        Brush? clickFgColor = null,
+        Brush? clickBgColor = null,
+        Brush? clickBorderColor = null,
+        FontType? font = null,
+        Thickness? borderWidth = null,
+        Alignment? justifyText = null
+
     )
         : base(master)
     {
-        self = new Button()
-        {
-            Width = width,
-            Height = height,
-            Content = text,
-        };
+        self = new Button();
+        
+        Width = width;
+        Height = height;
+        Text = text;
+        if(fgColor is not null) FgColor = fgColor;
+        if(bgColor is not null) BgColor = bgColor;
+        if(borderColor is not null) BorderColor = borderColor;
+        HoverFgColor = hoverFgColor;
+        HoverBgColor = hoverBgColor;
+        HoverBorderColor = hoverBorderColor;
+        ClickFgColor = clickFgColor;
+        ClickBgColor = clickBgColor;
+        ClickBorderColor = clickBorderColor;
+        if(font is not null) Font = (FontType)font;
+        if(borderWidth is not null) BorderWidth = (Thickness)borderWidth;
+        if(justifyText is not null) JustifyText = (Alignment)justifyText;
 
+        SetUpButtonInternals();
+        SetUpEvents();
+
+        // Ensure a default visual style is applied
+        ApplyOnMouseLeaveStyle();
+    }
+
+    private void SetUpButtonInternals()
+    {
         // Ensure the button's visual appearance
         self.OverridesDefaultStyle = true;
 
@@ -52,18 +85,16 @@ public class CtButton : Widget
         // Assign the template to the style
         style.Setters.Add(new Setter(Button.TemplateProperty, controlTemplate));
         self.Style = style;
-
+    }
+    private void SetUpEvents()
+    {
         // Set up event handlers
         self.Click += (s, e) => OnClick?.Invoke();
         self.MouseEnter += (s, e) => ApplyOnMouseEnterStyle();
         self.MouseLeave += (s, e) => ApplyOnMouseLeaveStyle();
         self.PreviewMouseDown += (s, e) => ApplyOnMouseDownStyle();
         self.PreviewMouseUp += (s, e) => ApplyOnMouseUpStyle();
-
-        // Ensure a default visual style is applied
-        ApplyOnMouseLeaveStyle();
     }
-
 
     public override double Width
     {
@@ -83,7 +114,7 @@ public class CtButton : Widget
 
     public Brush FgColor = Utility.BrushConverter.FromColor(0, 0, 0);
     public Brush BgColor = Utility.BrushConverter.FromColor(255, 255, 255);
-    public Brush BorderColor = Utility.BrushConverter.FromColor(0, 0, 0);
+    public Brush BorderColor = Utility.BrushConverter.FromColor(0, 0, 0, 0);
     public Brush? HoverFgColor = null;
     public Brush? HoverBgColor = null;
     public Brush? HoverBorderColor = null;

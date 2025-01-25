@@ -21,13 +21,24 @@ CtButton is used to create a button. It suports multiple colors for hover and cl
 
 ## Arguments
 
-| Argument | Type    | Default    | Description                                |
-| -------- | ------- | ---------- | ------------------------------------------ |
-| master   | IWindow | -          | The Window the element should be placed in |
-| width    | double  | 100        | Width of the element                       |
-| height   | double  | 24         | Height of the element                      |
-| text     | string  | "CtButton" | Text on the button                         |
-
+| Argument         | Type                                           | Default     | Description                                            |
+| ---------------- | ---------------------------------------------- | ----------- | ------------------------------------------------------ |
+| master           | IWindow                                        | -           | The Window the element should be placed in             |
+| width            | double                                         | 100         | Width of the element                                   |
+| height           | double                                         | 24          | Height of the element                                  |
+| text             | string                                         | "CtButton"  | Text on the button                                     |
+| fgColor          | Brush                                          | White       | The text color                                         |
+| bgColor          | Brush                                          | Black       | The background color                                   |
+| borderColor      | Brush                                          | Transparent | The border color                                       |
+| hoverFgColor     | Brush                                          | White       | The text color while the mous is over the button       |
+| hoverBgColor     | Brush                                          | Black       | The background color while the mous is over the button |
+| hoverBorderColor | Brush                                          | Transparent | The border color while the mous is over the button     |
+| clickFgColor     | Brush                                          | White       | The text color while the mouse is clicking             |
+| clickBgColor     | Brush                                          | Black       | The background color while the mouse is clicking       |
+| clickBorderColor | Brush                                          | Transparent | The border color while the mouse is clicking           |
+| font             | <a href="../Types/FontType.md">FontType</a>    | -           | The font used for the text                             |
+| borderWidth      | Thickness                                      | -           | The border width                                       |
+| justifyText      | <a href="../Types/Alignement.md">Alignment</a> | -           | Defines where the text is aligned                      |
 
 ## Variables
 
