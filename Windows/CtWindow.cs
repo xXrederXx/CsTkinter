@@ -10,7 +10,14 @@ public class CtWindow : IWindow
     private readonly Canvas canvas;
     private readonly List<(UIElement element, double x, double y)> RelativElements = [];
 
-    public CtWindow()
+    public CtWindow(
+        string title = "CsTkinter App",
+        Vector2? geometry = null,
+        Vector2? minSize = null,
+        Vector2? maxSize = null,
+        bool resizable = true,
+        WindowState state = WindowState.Normal
+    )
     {
         // Initialize the custom WPF window
         self = new Window();
@@ -18,6 +25,13 @@ public class CtWindow : IWindow
 
         self.Content = canvas;
         canvas.SizeChanged += (s, e) => UpdatePositionOfRelativ();
+
+        Title = title;
+        Geometry = geometry ?? new Vector2(600, 500);
+        MinSize = minSize ?? new Vector2(10, 10);
+        MaxSize = maxSize ?? new Vector2(float.MaxValue, float.MaxValue);
+        Resizable = resizable;
+        State = state;
     }
 
     public string Title

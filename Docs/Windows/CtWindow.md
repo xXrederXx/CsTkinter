@@ -28,6 +28,16 @@ This is the base of every app. You may only use one instance. To launch the app 
     }
 ```
 
+## Arguments
+
+| Argument  | Type        | Default                          | Description                                 |
+| --------- | ----------- | -------------------------------- | ------------------------------------------- |
+| title     | string      | "CsTkinter App"                  | The title of the window, displayed top left |
+| geometry  | Vector2     | (600, 500)                       | the standart width and height               |
+| minSize   | Vector2     | (10, 10)                         | the minimum width and height                |
+| maxSize   | Vector2     | (float.MaxValue, float.MaxValue) | the maximum width and height                |
+| resizable | bool        | true                             | Is the window resizable?                    |
+| state     | WindowState | WindowState.Normal               | State of the window                         |
 
 ## Methods
 
@@ -48,8 +58,8 @@ This is the base of every app. You may only use one instance. To launch the app 
 | State     | WindowState | state of the window - maximised, minimized, etc. |
 
 ## TODO
- - [ ] Better inizalizer
+ - [x] Better inizalizer
  - [ ] More Functionality
   
 ---
-25.1.2025
+26.1.2025
