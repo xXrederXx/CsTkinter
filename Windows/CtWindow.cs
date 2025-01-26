@@ -29,7 +29,7 @@ public class CtWindow : IWindow
         Title = title;
         Geometry = geometry ?? new Vector2(600, 500);
         MinSize = minSize ?? new Vector2(10, 10);
-        MaxSize = maxSize ?? new Vector2(float.MaxValue, float.MaxValue);
+        MaxSize = maxSize ?? new Vector2(214748364, 214748364);
         Resizable = resizable;
         State = state;
     }
