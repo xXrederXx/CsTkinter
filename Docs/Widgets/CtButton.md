@@ -62,7 +62,7 @@ CtButton is used to create a button. It suports multiple colors for hover and cl
 | OnClick          | Action                                         | Gets called everytime the user clickes the button      |
 
 ## TODO
- - [ ] Fix Bug on startup
+ - [x] Fix Bug on startup
  - [ ] Better Inizalizor
 
 
