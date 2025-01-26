@@ -21,14 +21,7 @@ public sealed class StyleSheetDark : IStyleSheet
 
     public StyleSheetDark()
     {
-        CtWindow placeholder = new();
-
-        Name = "Dark";
-        PrimaryColor = BrushConverter.FromColor(10, 10, 15);
-        MainTextColor = BrushConverter.FromColor(230, 230, 255);
-        MainFontType = new (new("Arial"), 11);
-
-        windowStyle = new CtWindow(
+        this.windowStyle = new CtWindow(
             "CsTkinter App",
             new(600, 500),
             new(10, 10),
@@ -38,8 +31,14 @@ public sealed class StyleSheetDark : IStyleSheet
             BrushConverter.Colors.Black
         );
 
+        Name = "Dark";
+        PrimaryColor = BrushConverter.FromColor(10, 10, 15);
+        MainTextColor = BrushConverter.FromColor(230, 230, 255);
+        MainFontType = new (new("Arial"), 11);
+
+
         labelStyle = new CtLabel(
-            placeholder,
+            windowStyle,
             120,
             24,
             "CtLabel",
@@ -52,7 +51,7 @@ public sealed class StyleSheetDark : IStyleSheet
         );
 
         buttonStyle = new CtButton(
-            placeholder,
+            windowStyle,
             120,
             24,
             "CtButton",
@@ -71,7 +70,7 @@ public sealed class StyleSheetDark : IStyleSheet
         );
         
         inputFieldStyle = new CtInputField(
-            placeholder,
+            windowStyle,
             120,
             24,
             "CtInput",
