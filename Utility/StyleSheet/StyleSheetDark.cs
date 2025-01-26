@@ -25,7 +25,7 @@ public sealed class StyleSheetDark : IStyleSheet
             "CsTkinter App",
             new(600, 500),
             new(10, 10),
-            new(2147483640, 2147483640),
+            new(214748360, 214748360),
             true,
             System.Windows.WindowState.Normal,
             BrushConverter.Colors.Black
@@ -47,7 +47,8 @@ public sealed class StyleSheetDark : IStyleSheet
             PrimaryColor,
             BrushConverter.Colors.Transparent,
             new(0),
-            Alignment.center
+            Alignment.center,
+            MainFontType
         );
 
         buttonStyle = new CtButton(
