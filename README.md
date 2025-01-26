@@ -27,9 +27,10 @@
 
 ## How To Use
 
-First create a new Csharp project. Go into the .csproj file and make shure it looks similar to this. Important are the **TargetFramework** and the **UseWPF**
+First create a new Csharp project. Take the .dll file and place it into your Project folder. If you place it else where, you need to change the HintPath. Go into the .csproj file and make shure it looks similar to this. Important are the **TargetFramework**, the **UseWPF** and the **ItemGroup**
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net9.0-windows</TargetFramework>
@@ -37,32 +38,35 @@ First create a new Csharp project. Go into the .csproj file and make shure it lo
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="CsTkinter">
+      <HintPath>./CsTkinter.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
 ```
-Then import all the scripts. Now you should be able to create an application.
-This is a sample app with only a lable. Importent is the **STAThread** attribute.
+Now crate a class with a Main function. It needs the **STAThread** attribute. Here is a sample application.
 ```csharp
-class Program
+using CsTkinter.Widgets;
+using CsTkinter.Windows;
+
+class App
 {
-    [STAThread] // Required for WPF
+    [STAThread]
     static void Main(string[] args)
     {
-        Console.WriteLine("Launching WPF Window...");
+        CtWindow root = new();
 
-        // Start the WPF application
-        CtWindow app = new CtWindow();
-        app.Geometry = new Vector2(200, 200);
+        CtLabel label = new CtLabel(root);
+        label.Place(10, 10);
 
-        CtLabel lable = new CtLabel(app, text: "Nice Label");
-        lable.Place(100, 100);
-
-        app.Run();
-
-        Console.WriteLine("WPF Window closed.");
+        root.Run();
     }
 }
-
 ```
+If you have trouble because of the dependency, try run dotnet clean.
 Now try to build your own app.
 
 ## TODO
