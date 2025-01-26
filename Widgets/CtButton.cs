@@ -37,21 +37,9 @@ public class CtButton : Widget
         Height = height;
         Text = text;
 
-        if (fgColor is not null)
-            this.fgColor = fgColor;
-        else
-            this.fgColor = Utility.BrushConverter.FromColor(0, 0, 0);
-
-        if (bgColor is not null)
-            this.bgColor = bgColor;
-        else
-            this.bgColor = Utility.BrushConverter.FromColor(255, 255, 255);
-
-        if (borderColor is not null)
-            this.borderColor = borderColor;
-        else
-            this.borderColor = Utility.BrushConverter.FromColor(0, 0, 0, 0);
-
+        this.fgColor = fgColor ?? Utility.BrushConverter.FromColor(0, 0, 0);
+        this.bgColor = bgColor ?? Utility.BrushConverter.FromColor(255, 255, 255);
+        this.borderColor = borderColor ?? Utility.BrushConverter.FromColor(0, 0, 0, 0);
         HoverFgColor = hoverFgColor;
         HoverBgColor = hoverBgColor;
         HoverBorderColor = hoverBorderColor;

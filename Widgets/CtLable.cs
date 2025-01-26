@@ -12,15 +12,35 @@ public class CtLabel : Widget
     private readonly Label self;
     private readonly Border border;
     
-    public CtLabel(IWindow master, double width = 100, double height = 24, string text = "CtLabel") : base(master)
+    public CtLabel(
+        IWindow master,
+        double width = 100,
+        double height = 24,
+        string text = "CtLabel",
+        CornerRadius? cornerRadius = null,
+        Brush? fgColor = null,
+        Brush? bgColor = null,
+        Brush? borderColor = null,
+        Thickness? borderWidth = null,
+        Alignment? justifyText = null
+    ) : base(master)
     {
-        self = new Label()
-        {
-            Width = width, Height = height, Content = text
-        };
-
+        self = new Label();
         border = new Border();
         border.Child = self;
+
+        Width = width;
+        Height = height;
+        Text = text;
+        if(cornerRadius is not null)
+            CornerRadius = (CornerRadius)cornerRadius;
+        FgColor = fgColor ?? Utility.BrushConverter.FromColor(0, 0, 0);
+        BgColor = bgColor ?? Utility.BrushConverter.FromColor(255, 255, 255);
+        BorderColor = borderColor ?? Utility.BrushConverter.FromColor(0, 0, 0, 0);
+        if(borderWidth is not null)
+            BorderWidth = (Thickness)borderWidth;
+        if(justifyText is not null)
+            JustifyText = (Alignment)justifyText;
     }
 
     public override double Width

@@ -20,13 +20,19 @@ CtLabel is used to create a Label in a window. It has great flexability.
 
 ## Arguments
 
-| Argument | Type    | Default   | Description                                |
-| -------- | ------- | --------- | ------------------------------------------ |
-| master   | IWindow | -         | The Window the element should be placed in |
-| width    | double  | 100       | Width of the element                       |
-| height   | double  | 24        | Height of the element                      |
-| text     | string  | "CtLabel" | Text to display                            |
-
+| Argument     | Type                                           | Default     | Description                                |
+| ------------ | ---------------------------------------------- | ----------- | ------------------------------------------ |
+| master       | IWindow                                        | -           | The Window the element should be placed in |
+| width        | double                                         | 100         | Width of the element                       |
+| height       | double                                         | 24          | Height of the element                      |
+| text         | string                                         | "CtLabel"   | Text to display                            |
+| CornerRadius | CornerRadius                                   | -           | The corner radiuses                        |
+| FgColor      | Brush                                          | Black       | The text color                             |
+| BgColor      | Brush                                          | White       | The background color                       |
+| Font         | <a href="../Types/FontType.md">FontType</a>    | -           | The font used for the text                 |
+| BorderColor  | Brush                                          | Transparent | The border color                           |
+| BorderWidth  | Thickness                                      | -           | The border width                           |
+| JustifyText  | <a href="../Types/Alignement.md">Alignment</a> | -           | Defines where the text is aligned          |
 
 ## Variables
 
@@ -45,7 +51,7 @@ CtLabel is used to create a Label in a window. It has great flexability.
 | JustifyText  | <a href="../Types/Alignement.md">Alignment</a> | Defines where the text is aligned |
 
 ## TODO
- - [ ] Better Initalizer
+ - [x] Better Initalizer
 
 ---
-25.1.2025
+26.1.2025
