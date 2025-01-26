@@ -1,8 +1,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using CsTkinter.Utility;
 using CsTkinter.Utility.DataTypes;
+using CsTkinter.Utility.StyleSheet;
 using CsTkinter.Windows;
 
 namespace CsTkinter.Widgets;
@@ -14,33 +14,32 @@ public class CtLabel : Widget
     
     public CtLabel(
         IWindow master,
-        double width = 100,
-        double height = 24,
-        string text = "CtLabel",
+        double? width = null,
+        double? height = null,
+        string? text = null,
         CornerRadius? cornerRadius = null,
         Brush? fgColor = null,
         Brush? bgColor = null,
         Brush? borderColor = null,
         Thickness? borderWidth = null,
-        Alignment? justifyText = null
+        Alignment? justifyText = null,
+        FontType? font = null
     ) : base(master)
     {
         self = new Label();
         border = new Border();
         border.Child = self;
 
-        Width = width;
-        Height = height;
-        Text = text;
-        if(cornerRadius is not null)
-            CornerRadius = (CornerRadius)cornerRadius;
-        FgColor = fgColor ?? Utility.BrushConverter.FromColor(0, 0, 0);
-        BgColor = bgColor ?? Utility.BrushConverter.FromColor(255, 255, 255);
-        BorderColor = borderColor ?? Utility.BrushConverter.FromColor(0, 0, 0, 0);
-        if(borderWidth is not null)
-            BorderWidth = (Thickness)borderWidth;
-        if(justifyText is not null)
-            JustifyText = (Alignment)justifyText;
+        Width = width ?? StyleSheetManager.current.labelStyle.Width;
+        Height = height ?? StyleSheetManager.current.labelStyle.Height;
+        Text = text ?? StyleSheetManager.current.labelStyle.Text;
+        CornerRadius = cornerRadius ?? StyleSheetManager.current.labelStyle.CornerRadius;
+        FgColor = fgColor ?? StyleSheetManager.current.labelStyle.FgColor;
+        BgColor = bgColor ?? StyleSheetManager.current.labelStyle.BgColor;
+        BorderColor = borderColor ?? StyleSheetManager.current.labelStyle.BorderColor;
+        BorderWidth = borderWidth ?? StyleSheetManager.current.labelStyle.BorderWidth;
+        JustifyText = justifyText ?? StyleSheetManager.current.labelStyle.JustifyText;
+        Font = font ?? StyleSheetManager.current.labelStyle.Font;
     }
 
     public override double Width

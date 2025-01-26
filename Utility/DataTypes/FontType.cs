@@ -15,26 +15,26 @@ public readonly struct FontType
     public FontType(FontFamily fontFamily)
     {
         this.fontFamily = fontFamily;
-        this.fontSize = 11;
-        this.fontStyle = FontStyles.Normal;
-        this.fontWeight = FontWeights.Normal;
-        this.fontStretch = FontStretches.Normal;
+        fontSize = 11;
+        fontStyle = FontStyles.Normal;
+        fontWeight = FontWeights.Normal;
+        fontStretch = FontStretches.Normal;
     }
     public FontType(FontFamily fontFamily, double fontSize)
     {
         this.fontFamily = fontFamily;
         this.fontSize = fontSize;
-        this.fontStyle = FontStyles.Normal;
-        this.fontWeight = FontWeights.Normal;
-        this.fontStretch = FontStretches.Normal;
+        fontStyle = FontStyles.Normal;
+        fontWeight = FontWeights.Normal;
+        fontStretch = FontStretches.Normal;
     }
     public FontType(FontFamily fontFamily, double fontSize, FontStyle fontStyle)
     {
         this.fontFamily = fontFamily;
         this.fontSize = fontSize;
         this.fontStyle = fontStyle;
-        this.fontWeight = FontWeights.Normal;
-        this.fontStretch = FontStretches.Normal;
+        fontWeight = FontWeights.Normal;
+        fontStretch = FontStretches.Normal;
     }
     public FontType(FontFamily fontFamily, double fontSize, FontStyle fontStyle, FontWeight fontWeight)
     {
@@ -42,7 +42,7 @@ public readonly struct FontType
         this.fontSize = fontSize;
         this.fontStyle = fontStyle;
         this.fontWeight = fontWeight;
-        this.fontStretch = FontStretches.Normal;
+        fontStretch = FontStretches.Normal;
     }
     public FontType(FontFamily fontFamily, double fontSize, FontStyle fontStyle, FontWeight fontWeight, FontStretch fontStretch)
     {

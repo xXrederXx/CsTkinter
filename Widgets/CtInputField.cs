@@ -1,8 +1,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using CsTkinter.Utility;
 using CsTkinter.Utility.DataTypes;
+using CsTkinter.Utility.StyleSheet;
 using CsTkinter.Windows;
 
 namespace CsTkinter.Widgets;
@@ -12,30 +12,32 @@ public class CtInputField : Widget
     private readonly TextBox self;
 
     public CtInputField(IWindow master,
-        double width = 100,
-        double height = 24,
-        string text = "",
+        double? width = null,
+        double? height = null,
+        string? text = null,
         Brush? fgColor = null,
         Brush? bgColor = null,
         Brush? borderColor = null,
         Thickness? borderWidth = null,
         Alignment? justifyText = null,
-        bool multibleLineText = false,
-        bool wrapText = false
+        FontType? font = null,
+        bool? multibleLineText = null,
+        bool? wrapText = null
     )
         : base(master)
     {
         self = new TextBox();
-        Width = width;
-        Height = height;
-        Text = text;
-        FgColor = fgColor ?? Utility.BrushConverter.FromColor(0, 0, 0);
-        BgColor = bgColor ?? Utility.BrushConverter.FromColor(255, 255, 255);
-        BorderColor = borderColor ?? Utility.BrushConverter.FromColor(0, 0, 0, 0);
-        if(borderWidth is not null) BorderWidth = (Thickness)borderWidth;
-        if(justifyText is not null) JustifyText = (Alignment)justifyText;
-        MultibleLineText = multibleLineText;
-        WrapText = wrapText;
+        Width = width ?? StyleSheetManager.current.inputFieldStyle.Width;
+        Height = height ?? StyleSheetManager.current.inputFieldStyle.Height;
+        Text = text ?? StyleSheetManager.current.inputFieldStyle.Text;
+        FgColor = fgColor ?? StyleSheetManager.current.inputFieldStyle.FgColor;
+        BgColor = bgColor ?? StyleSheetManager.current.inputFieldStyle.BgColor;
+        BorderColor = borderColor ?? StyleSheetManager.current.inputFieldStyle.BorderColor;
+        BorderWidth = borderWidth ?? StyleSheetManager.current.inputFieldStyle.BorderWidth;
+        JustifyText = justifyText ?? StyleSheetManager.current.inputFieldStyle.JustifyText;
+        MultibleLineText = multibleLineText ?? StyleSheetManager.current.inputFieldStyle.MultibleLineText;
+        WrapText = wrapText ?? StyleSheetManager.current.inputFieldStyle.WrapText;
+        Font = font ?? StyleSheetManager.current.buttonStyle.Font;
 
         SetUpInputInternals();
     }

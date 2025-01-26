@@ -1,6 +1,8 @@
 using System.Numerics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using CsTkinter.Utility.StyleSheet;
 
 namespace CsTkinter.Windows;
 
@@ -11,12 +13,13 @@ public class CtWindow : IWindow
     private readonly List<(UIElement element, double x, double y)> RelativElements = [];
 
     public CtWindow(
-        string title = "CsTkinter App",
+        string? title = null,
         Vector2? geometry = null,
         Vector2? minSize = null,
         Vector2? maxSize = null,
-        bool resizable = true,
-        WindowState state = WindowState.Normal
+        bool? resizable = null,
+        WindowState? state = null,
+        Brush? bgColor = null
     )
     {
         // Initialize the custom WPF window
@@ -26,12 +29,13 @@ public class CtWindow : IWindow
         self.Content = canvas;
         canvas.SizeChanged += (s, e) => UpdatePositionOfRelativ();
 
-        Title = title;
-        Geometry = geometry ?? new Vector2(600, 500);
-        MinSize = minSize ?? new Vector2(10, 10);
-        MaxSize = maxSize ?? new Vector2(214748364, 214748364);
-        Resizable = resizable;
-        State = state;
+        Title = title ?? StyleSheetManager.current.windowStyle.Title;
+        Geometry = geometry ?? StyleSheetManager.current.windowStyle.Geometry;
+        MinSize = minSize ?? StyleSheetManager.current.windowStyle.MinSize;
+        MaxSize = maxSize ?? StyleSheetManager.current.windowStyle.MaxSize;
+        Resizable = resizable ?? StyleSheetManager.current.windowStyle.Resizable;
+        State = state ?? StyleSheetManager.current.windowStyle.State;
+        BgColor = bgColor ?? StyleSheetManager.current.windowStyle.BgColor;
     }
 
     public string Title
@@ -81,7 +85,11 @@ public class CtWindow : IWindow
         get => self.WindowState;
         set => self.WindowState = value;
     }
-
+    public Brush BgColor
+    {
+        get => canvas.Background;
+        set => canvas.Background = value;
+    }
     public void Place(UIElement element, double x, double y)
     {
         // Ensure the element is added to the canvas

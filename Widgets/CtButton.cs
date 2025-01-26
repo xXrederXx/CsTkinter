@@ -1,8 +1,8 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using CsTkinter.Utility;
 using CsTkinter.Utility.DataTypes;
+using CsTkinter.Utility.StyleSheet;
 using CsTkinter.Windows;
 
 namespace CsTkinter.Widgets;
@@ -13,9 +13,9 @@ public class CtButton : Widget
 
     public CtButton(
         IWindow master,
-        double width = 100,
-        double height = 24,
-        string text = "CtButton",
+        double? width = null,
+        double? height = null,
+        string? text = null,
         Brush? fgColor = null,
         Brush? bgColor = null,
         Brush? borderColor = null,
@@ -33,28 +33,22 @@ public class CtButton : Widget
     {
         self = new Button();
 
-        Width = width;
-        Height = height;
-        Text = text;
+        Width = width ?? StyleSheetManager.current.buttonStyle.Width;
+        Height = height ?? StyleSheetManager.current.buttonStyle.Height;
+        Text = text ?? StyleSheetManager.current.buttonStyle.Text;
+        this.fgColor = fgColor ?? StyleSheetManager.current.buttonStyle.fgColor;
+        this.bgColor = bgColor ?? StyleSheetManager.current.buttonStyle.bgColor;
+        this.borderColor = borderColor ?? StyleSheetManager.current.buttonStyle.borderColor;
+        HoverFgColor = hoverFgColor ?? StyleSheetManager.current.buttonStyle.hoverFgColor;
+        HoverBgColor = hoverBgColor ?? StyleSheetManager.current.buttonStyle.HoverBgColor;
+        HoverBorderColor = hoverBorderColor ?? StyleSheetManager.current.buttonStyle.hoverBorderColor;
+        ClickFgColor = clickFgColor ?? StyleSheetManager.current.buttonStyle.clickFgColor;
+        ClickBgColor = clickBgColor ?? StyleSheetManager.current.buttonStyle.clickBgColor;
+        ClickBorderColor = clickBorderColor ?? StyleSheetManager.current.buttonStyle.clickBorderColor;
+        Font = font ?? StyleSheetManager.current.buttonStyle.Font;
+        BorderWidth = borderWidth ?? StyleSheetManager.current.buttonStyle.BorderWidth;
+        JustifyText = justifyText ?? StyleSheetManager.current.buttonStyle.JustifyText;
 
-        this.fgColor = fgColor ?? Utility.BrushConverter.FromColor(0, 0, 0);
-        this.bgColor = bgColor ?? Utility.BrushConverter.FromColor(255, 255, 255);
-        this.borderColor = borderColor ?? Utility.BrushConverter.FromColor(0, 0, 0, 0);
-        HoverFgColor = hoverFgColor;
-        HoverBgColor = hoverBgColor;
-        HoverBorderColor = hoverBorderColor;
-        ClickFgColor = clickFgColor;
-        ClickBgColor = clickBgColor;
-        ClickBorderColor = clickBorderColor;
-
-        if (font is not null)
-            Font = (FontType)font;
-
-        if (borderWidth is not null)
-            BorderWidth = (Thickness)borderWidth;
-            
-        if (justifyText is not null)
-            JustifyText = (Alignment)justifyText;
 
         SetUpButtonInternals();
         SetUpEvents();
