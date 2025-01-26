@@ -36,28 +36,35 @@ public class CtButton : Widget
         Width = width;
         Height = height;
         Text = text;
+
         if (fgColor is not null)
-            FgColor = fgColor;
+            this.fgColor = fgColor;
         else
-            FgColor = Utility.BrushConverter.FromColor(0, 0, 0);
+            this.fgColor = Utility.BrushConverter.FromColor(0, 0, 0);
+
         if (bgColor is not null)
-            BgColor = bgColor;
+            this.bgColor = bgColor;
         else
-            BgColor = Utility.BrushConverter.FromColor(255, 255, 255);
+            this.bgColor = Utility.BrushConverter.FromColor(255, 255, 255);
+
         if (borderColor is not null)
-            BorderColor = borderColor;
+            this.borderColor = borderColor;
         else
-            BorderColor = Utility.BrushConverter.FromColor(0, 0, 0, 0);
+            this.borderColor = Utility.BrushConverter.FromColor(0, 0, 0, 0);
+
         HoverFgColor = hoverFgColor;
         HoverBgColor = hoverBgColor;
         HoverBorderColor = hoverBorderColor;
         ClickFgColor = clickFgColor;
         ClickBgColor = clickBgColor;
         ClickBorderColor = clickBorderColor;
+
         if (font is not null)
             Font = (FontType)font;
+
         if (borderWidth is not null)
             BorderWidth = (Thickness)borderWidth;
+            
         if (justifyText is not null)
             JustifyText = (Alignment)justifyText;
 

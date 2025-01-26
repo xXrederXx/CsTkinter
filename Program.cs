@@ -1,17 +1,14 @@
-﻿using System.Numerics;
-using CsTkinter.Tests.Widgets;
-using CsTkinter.Widgets;
-using CsTkinter.Windows;
+﻿using CsTkinter.Tests.Widgets;
 
-namespace WpfConsoleApp
+
+namespace CsTkinter;
+
+class Program
 {
-    class Program
+    [STAThread] // Required for WPF
+    static void Main(string[] args)
     {
-        [STAThread] // Required for WPF
-        static void Main(string[] args)
-        {
-            new ButtonTest();
-            return;
-        }
+        new ButtonTest();
+        return;
     }
 }

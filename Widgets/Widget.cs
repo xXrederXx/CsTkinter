@@ -1,4 +1,3 @@
-using System;
 using CsTkinter.Windows;
 using System.Windows;
 

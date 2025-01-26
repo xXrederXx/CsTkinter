@@ -1,7 +1,6 @@
 using System.Numerics;
 using System.Windows;
 using System.Windows.Controls;
-using CsTkinter.Widgets;
 
 namespace CsTkinter.Windows;
 
@@ -9,7 +8,7 @@ public class CtWindow : IWindow
 {
     private readonly Window self;
     private readonly Canvas canvas;
-    private readonly List<(UIElement, double, double)> RelativElements = [];
+    private readonly List<(UIElement element, double x, double y)> RelativElements = [];
 
     public CtWindow()
     {
