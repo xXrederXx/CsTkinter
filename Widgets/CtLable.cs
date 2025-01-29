@@ -99,8 +99,8 @@ public class CtLabel : Widget
         get => new Alignment(self.HorizontalContentAlignment, self.VerticalContentAlignment);
         set
         {
-            self.HorizontalAlignment = value.horizontal;
-            self.VerticalAlignment = value.vertical;
+            self.HorizontalContentAlignment = value.horizontal;
+            self.VerticalContentAlignment = value.vertical;
         }
     }
 
