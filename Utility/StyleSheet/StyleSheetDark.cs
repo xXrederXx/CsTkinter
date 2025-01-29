@@ -8,7 +8,6 @@ namespace CsTkinter.Utility.StyleSheet;
 public sealed class StyleSheetDark : IStyleSheet
 {
     public string Name { get; }
-    
 
     public Brush PrimaryColor { get; }
     public Brush MainTextColor { get; }
@@ -32,19 +31,18 @@ public sealed class StyleSheetDark : IStyleSheet
         );
 
         Name = "Dark";
-        PrimaryColor = BrushConverter.FromColor(10, 10, 15);
-        MainTextColor = BrushConverter.FromColor(230, 230, 255);
-        MainFontType = new (new("Arial"), 11);
-
+        PrimaryColor = BrushConverter.FromColor(33, 112, 174);
+        MainTextColor = BrushConverter.FromColor(240, 240, 255);
+        MainFontType = new(new("Arial"), 11);
 
         labelStyle = new CtLabel(
             windowStyle,
             120,
             24,
             "CtLabel",
-            new(4),
+            new(0),
             MainTextColor,
-            PrimaryColor,
+            BrushConverter.Colors.Transparent,
             BrushConverter.Colors.Transparent,
             new(0),
             Alignment.center,
@@ -58,28 +56,30 @@ public sealed class StyleSheetDark : IStyleSheet
             "CtButton",
             MainTextColor,
             PrimaryColor,
-            BrushConverter.Colors.Transparent,
+            PrimaryColor,
             MainTextColor,
             BrushConverter.FromColor(20, 20, 24),
-            BrushConverter.Colors.Transparent,
+            PrimaryColor,
             MainTextColor,
             BrushConverter.FromColor(30, 30, 34),
-            BrushConverter.Colors.Transparent,
+            PrimaryColor,
             MainFontType,
-            new(0),
-            Alignment.center
+            new(2),
+            Alignment.center,
+            new(2)
         );
-        
+
         inputFieldStyle = new CtInputField(
             windowStyle,
             120,
-            24,
+            240,
             "CtInput",
             MainTextColor,
-            PrimaryColor,
-            BrushConverter.Colors.Black,
-            new(1),
-            Alignment.center,
+            BrushConverter.FromColor(57, 58, 60),
+            BrushConverter.FromColor(89, 93, 94),
+            new(2),
+            new(2),
+            new(System.Windows.HorizontalAlignment.Left, System.Windows.VerticalAlignment.Center),
             MainFontType,
             false,
             false

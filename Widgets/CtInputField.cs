@@ -11,7 +11,8 @@ public class CtInputField : Widget
 {
     private readonly TextBox self;
 
-    public CtInputField(IWindow master,
+    public CtInputField(
+        IWindow master,
         double? width = null,
         double? height = null,
         string? text = null,
@@ -19,6 +20,7 @@ public class CtInputField : Widget
         Brush? bgColor = null,
         Brush? borderColor = null,
         Thickness? borderWidth = null,
+        CornerRadius? cornerRadius = null,
         Alignment? justifyText = null,
         FontType? font = null,
         bool? multibleLineText = null,
@@ -35,9 +37,11 @@ public class CtInputField : Widget
         BorderColor = borderColor ?? StyleSheetManager.current.inputFieldStyle.BorderColor;
         BorderWidth = borderWidth ?? StyleSheetManager.current.inputFieldStyle.BorderWidth;
         JustifyText = justifyText ?? StyleSheetManager.current.inputFieldStyle.JustifyText;
-        MultibleLineText = multibleLineText ?? StyleSheetManager.current.inputFieldStyle.MultibleLineText;
+        MultibleLineText =
+            multibleLineText ?? StyleSheetManager.current.inputFieldStyle.MultibleLineText;
         WrapText = wrapText ?? StyleSheetManager.current.inputFieldStyle.WrapText;
         Font = font ?? StyleSheetManager.current.buttonStyle.Font;
+        CornerRadius = cornerRadius ?? StyleSheetManager.current.buttonStyle.CornerRadius;
 
         SetUpInputInternals();
     }
@@ -84,6 +88,19 @@ public class CtInputField : Widget
         {
             self.HorizontalContentAlignment = value.horizontal;
             self.VerticalContentAlignment = value.vertical;
+            if (value.vertical == VerticalAlignment.Center)
+            {
+                self.Padding = new Thickness(
+                    self.Padding.Left,
+                    self.Height * 0.2453703704 - 3.8888888896,  // This is the best approximation i found
+                    self.Padding.Right,                         // I used some sample points and solved for y = ax + b
+                    self.Padding.Bottom                         // With points (24, 2) and (55, 240)
+                );
+            }
+            else
+            {
+                self.Padding = new Thickness(0);
+            }
         }
     }
     public FontType Font
@@ -104,6 +121,11 @@ public class CtInputField : Widget
             self.FontWeight = value.fontWeight;
             self.FontStretch = value.fontStretch;
         }
+    }
+    public CornerRadius CornerRadius
+    {
+        get => (CornerRadius)self.GetValue(Border.CornerRadiusProperty);
+        set => self.SetValue(Border.CornerRadiusProperty, value);
     }
     public bool MultibleLineText
     {
@@ -131,7 +153,7 @@ public class CtInputField : Widget
     {
         ControlTemplate controlTemplate = new ControlTemplate(typeof(TextBox));
 
-        var borderFactory = new FrameworkElementFactory(typeof(Border));
+        FrameworkElementFactory borderFactory = new FrameworkElementFactory(typeof(Border));
         borderFactory.SetValue(
             Border.BackgroundProperty,
             new TemplateBindingExtension(TextBox.BackgroundProperty)
@@ -148,6 +170,10 @@ public class CtInputField : Widget
             Border.PaddingProperty,
             new TemplateBindingExtension(TextBox.PaddingProperty)
         );
+        borderFactory.SetValue(
+            Border.CornerRadiusProperty,
+            new TemplateBindingExtension(Border.CornerRadiusProperty)
+        );
 
         FrameworkElementFactory scrollViewerFactory = new FrameworkElementFactory(
             typeof(ScrollViewer)
@@ -160,6 +186,7 @@ public class CtInputField : Widget
             ScrollViewer.VerticalScrollBarVisibilityProperty,
             ScrollBarVisibility.Hidden
         );
+
         // Add the required PART_ContentHost inside the ScrollViewer
         FrameworkElementFactory contentHostFactory = new FrameworkElementFactory(typeof(Decorator));
         contentHostFactory.Name = "PART_ContentHost";

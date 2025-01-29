@@ -17,7 +17,7 @@ public static class BrushConverter
     }
     public static Brush FromColor(byte r, byte g, byte b, byte a = 255)
     {
-        return FromColor(Color.FromArgb(a, r, b, g));
+        return FromColor(Color.FromArgb(a, r, g, b));
     }
 
 }

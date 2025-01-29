@@ -27,7 +27,8 @@ public class CtButton : Widget
         Brush? clickBorderColor = null,
         FontType? font = null,
         Thickness? borderWidth = null,
-        Alignment? justifyText = null
+        Alignment? justifyText = null,
+        CornerRadius? cornerRadius = null
     )
         : base(master)
     {
@@ -41,18 +42,20 @@ public class CtButton : Widget
         this.borderColor = borderColor ?? StyleSheetManager.current.buttonStyle.borderColor;
         HoverFgColor = hoverFgColor ?? StyleSheetManager.current.buttonStyle.hoverFgColor;
         HoverBgColor = hoverBgColor ?? StyleSheetManager.current.buttonStyle.HoverBgColor;
-        HoverBorderColor = hoverBorderColor ?? StyleSheetManager.current.buttonStyle.hoverBorderColor;
+        HoverBorderColor =
+            hoverBorderColor ?? StyleSheetManager.current.buttonStyle.hoverBorderColor;
         ClickFgColor = clickFgColor ?? StyleSheetManager.current.buttonStyle.clickFgColor;
         ClickBgColor = clickBgColor ?? StyleSheetManager.current.buttonStyle.clickBgColor;
-        ClickBorderColor = clickBorderColor ?? StyleSheetManager.current.buttonStyle.clickBorderColor;
+        ClickBorderColor =
+            clickBorderColor ?? StyleSheetManager.current.buttonStyle.clickBorderColor;
         Font = font ?? StyleSheetManager.current.buttonStyle.Font;
         BorderWidth = borderWidth ?? StyleSheetManager.current.buttonStyle.BorderWidth;
         JustifyText = justifyText ?? StyleSheetManager.current.buttonStyle.JustifyText;
+        CornerRadius = cornerRadius ?? StyleSheetManager.current.buttonStyle.CornerRadius;
 
 
         SetUpButtonInternals();
         SetUpEvents();
-
         // Ensure a default visual style is applied
         ApplyOnMouseLeaveStyle();
     }
@@ -106,7 +109,11 @@ public class CtButton : Widget
             self.VerticalAlignment = value.vertical;
         }
     }
-
+    public CornerRadius CornerRadius
+    {
+        get => (CornerRadius)self.GetValue(Border.CornerRadiusProperty);
+        set => self.SetValue(Border.CornerRadiusProperty, value);
+    }
     public Brush FgColor
     {
         get => fgColor;
@@ -237,6 +244,10 @@ public class CtButton : Widget
         borderFactory.SetValue(
             Border.PaddingProperty,
             new TemplateBindingExtension(Button.PaddingProperty)
+        );
+        borderFactory.SetValue(
+            Border.CornerRadiusProperty,
+            new TemplateBindingExtension(Border.CornerRadiusProperty)
         );
 
         // Add a ContentPresenter to the Border
