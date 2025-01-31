@@ -141,8 +141,8 @@ public class CtInputField : Widget
         set => self.TextWrapping = value ? TextWrapping.Wrap : TextWrapping.NoWrap;
     }
 
-    public Action OnTextChaged;
-    public Action OnSelectionChanged;
+    public Action? OnTextChaged;
+    public Action? OnSelectionChanged;
     [Obsolete("The Spell check is not really good, it is very old")]
     public bool SpellCheck
     {
