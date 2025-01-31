@@ -1,6 +1,7 @@
 using System.Windows.Media;
 using CsTkinter.Utility.DataTypes;
 using CsTkinter.Widgets;
+using CsTkinter.Windows;
 
 namespace CsTkinter.Utility.StyleSheet;
 
@@ -13,6 +14,7 @@ public sealed class StyleSheetDark : IStyleSheet
     public FontType MainFontType { get; }
 
     public CtWindow windowStyle { get; }
+    public CtTopLevel topLevelStyle { get; }
     public CtLabel labelStyle { get; }
     public CtButton buttonStyle { get; }
     public CtInputField inputFieldStyle { get; }
@@ -20,7 +22,7 @@ public sealed class StyleSheetDark : IStyleSheet
 
     public StyleSheetDark()
     {
-        this.windowStyle = new CtWindow(
+        windowStyle = new CtWindow(
             "CsTkinter App",
             new(600, 500),
             new(10, 10),
@@ -29,7 +31,16 @@ public sealed class StyleSheetDark : IStyleSheet
             System.Windows.WindowState.Normal,
             BrushConverter.Colors.Black
         );
-
+        topLevelStyle = new CtTopLevel(
+            "Top Level Window",
+            new(200, 100),
+            new(10, 10),
+            new(214748360, 214748360),
+            false,
+            System.Windows.WindowState.Normal,
+            BrushConverter.Colors.Black
+        );
+        
         Name = "Dark";
         PrimaryColor = BrushConverter.FromColor(33, 112, 174);
         MainTextColor = BrushConverter.FromColor(240, 240, 255);

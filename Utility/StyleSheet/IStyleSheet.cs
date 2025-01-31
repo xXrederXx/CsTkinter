@@ -1,6 +1,7 @@
 using System.Windows.Media;
 using CsTkinter.Utility.DataTypes;
 using CsTkinter.Widgets;
+using CsTkinter.Windows;
 
 namespace CsTkinter.Utility.StyleSheet;
 
@@ -13,6 +14,7 @@ public interface IStyleSheet
     protected FontType MainFontType { get; }
 
     CtWindow windowStyle { get; }
+    CtTopLevel topLevelStyle { get; }
     CtLabel labelStyle { get; }
     CtButton buttonStyle { get; }
     CtInputField inputFieldStyle { get; }
