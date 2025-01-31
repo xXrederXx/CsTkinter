@@ -2,8 +2,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using CsTkinter.Utility.DataTypes;
-using CsTkinter.Utility.StyleSheet;
 using CsTkinter.Utility.Interfaces;
+using CsTkinter.Utility.StyleSheet;
 
 namespace CsTkinter.Widgets;
 
@@ -95,9 +95,9 @@ public class CtInputField : Widget
             {
                 self.Padding = new Thickness(
                     self.Padding.Left,
-                    self.Height * 0.2453703704 - 3.8888888896,  // This is the best approximation i found
-                    self.Padding.Right,                         // I used some sample points and solved for y = ax + b
-                    self.Padding.Bottom                         // With points (24, 2) and (55, 240)
+                    self.Height * 0.2453703704 - 3.8888888896, // This is the best approximation i found
+                    self.Padding.Right, // I used some sample points and solved for y = ax + b
+                    self.Padding.Bottom // With points (24, 2) and (55, 240)
                 );
             }
             else
@@ -143,6 +143,7 @@ public class CtInputField : Widget
 
     public Action? OnTextChaged;
     public Action? OnSelectionChanged;
+
     [Obsolete("The Spell check is not really good, it is very old")]
     public bool SpellCheck
     {
