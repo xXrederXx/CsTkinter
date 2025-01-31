@@ -1,6 +1,6 @@
 using System;
 using System.Numerics;
-using CsTkinter.Windows;
+using CsTkinter.Utility;
 
 namespace CsTkinter.Tests;
 

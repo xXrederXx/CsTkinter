@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using CsTkinter.Utility.DataTypes;
 using CsTkinter.Utility.StyleSheet;
-using CsTkinter.Windows;
+using CsTkinter.Utility.Interfaces;
 
 namespace CsTkinter.Widgets;
 
@@ -13,7 +13,7 @@ public class CtLabel : Widget
     private readonly Border border;
     
     public CtLabel(
-        IWindow master,
+        IPlacableInTo master,
         double? width = null,
         double? height = null,
         string? text = null,

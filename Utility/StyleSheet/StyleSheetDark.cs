@@ -1,7 +1,6 @@
 using System.Windows.Media;
 using CsTkinter.Utility.DataTypes;
 using CsTkinter.Widgets;
-using CsTkinter.Windows;
 
 namespace CsTkinter.Utility.StyleSheet;
 
@@ -17,6 +16,7 @@ public sealed class StyleSheetDark : IStyleSheet
     public CtLabel labelStyle { get; }
     public CtButton buttonStyle { get; }
     public CtInputField inputFieldStyle { get; }
+    public CtFrame frameStyle { get; }
 
     public StyleSheetDark()
     {
@@ -72,7 +72,7 @@ public sealed class StyleSheetDark : IStyleSheet
         inputFieldStyle = new CtInputField(
             windowStyle,
             120,
-            240,
+            24,
             "CtInput",
             MainTextColor,
             BrushConverter.FromColor(57, 58, 60),
@@ -83,6 +83,16 @@ public sealed class StyleSheetDark : IStyleSheet
             MainFontType,
             false,
             false
+        );
+
+        frameStyle = new CtFrame(
+            windowStyle,
+            100,
+            100,
+            new(2),
+            PrimaryColor,
+            PrimaryColor,
+            new(2)
         );
     }
 }

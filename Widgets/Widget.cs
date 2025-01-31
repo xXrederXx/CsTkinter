@@ -1,12 +1,12 @@
-using CsTkinter.Windows;
+using CsTkinter.Utility.Interfaces;
 using System.Windows;
 
 namespace CsTkinter.Widgets;
 
 public abstract class Widget
 {
-    protected IWindow master { get; }
-    protected Widget(IWindow master){
+    protected IPlacableInTo master { get; }
+    protected Widget(IPlacableInTo master){
         this.master = master;
     }
 

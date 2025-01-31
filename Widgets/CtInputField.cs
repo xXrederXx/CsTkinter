@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using CsTkinter.Utility.DataTypes;
 using CsTkinter.Utility.StyleSheet;
-using CsTkinter.Windows;
+using CsTkinter.Utility.Interfaces;
 
 namespace CsTkinter.Widgets;
 
@@ -12,7 +12,7 @@ public class CtInputField : Widget
     private readonly TextBox self;
 
     public CtInputField(
-        IWindow master,
+        IPlacableInTo master,
         double? width = null,
         double? height = null,
         string? text = null,
@@ -42,6 +42,9 @@ public class CtInputField : Widget
         WrapText = wrapText ?? StyleSheetManager.current.inputFieldStyle.WrapText;
         Font = font ?? StyleSheetManager.current.buttonStyle.Font;
         CornerRadius = cornerRadius ?? StyleSheetManager.current.buttonStyle.CornerRadius;
+
+        self.TextChanged += (sender, args) => OnTextChaged?.Invoke();
+        self.SelectionChanged += (sender, args) => OnSelectionChanged?.Invoke();
 
         SetUpInputInternals();
     }
@@ -138,6 +141,8 @@ public class CtInputField : Widget
         set => self.TextWrapping = value ? TextWrapping.Wrap : TextWrapping.NoWrap;
     }
 
+    public Action OnTextChaged;
+    public Action OnSelectionChanged;
     [Obsolete("The Spell check is not really good, it is very old")]
     public bool SpellCheck
     {

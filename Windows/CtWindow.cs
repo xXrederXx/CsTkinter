@@ -2,11 +2,12 @@ using System.Numerics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using CsTkinter.Utility.Interfaces;
 using CsTkinter.Utility.StyleSheet;
 
-namespace CsTkinter.Windows;
+namespace CsTkinter.Utility;
 
-public class CtWindow : IWindow
+public class CtWindow : IPlacableInTo
 {
     private readonly Window self;
     private readonly Canvas canvas;
