@@ -17,6 +17,9 @@
   <a href="#license">License</a>
 </p>
 
+## Discontinued
+I have discontinued this project because there is too much complication with WPF. I started over with a new approach in a repo called AnyUI. 😊
+
 ## Key Features
 
 * Easy to use
